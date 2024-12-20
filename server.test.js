@@ -3,6 +3,11 @@ const supertest = require("supertest");
 const request = supertest(app);
 
 describe("API Endpoint Tests", () => {
+ it("Call the /ci endpoint", async () => {
+  const res = await request.get("/ci");
+  expect(res.status).toBe(200);
+  expect(res.text).toBe("Hello, ci!");
+});
  it("Call the /coding endpoint", async () => {
   const res = await request.get("/coding");
   expect(res.status).toBe(200);
